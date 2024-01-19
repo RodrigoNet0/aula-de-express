@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados.json</title>
+</head>
+<style>
+    #btn{
+        background-color: blueviolet;
+        margin: 5px;
+    }
+</style>
+<body>
+    <button id="btn">Click no botão do GUGU</button>
+    <p></p>
+    <script>
+       // alert("Vai começar o THE PROJECT");
+        fetch("./dados.json")
+        .then((resp) => resp.json())
+        .then((data) => dados = data);
+
+        document.querySelector("#btn").addEventListener('click', () => {
+            console.log('data', dados);
+            document.querySelector('p').innerHTML = dados.nome + ' - ' + dados.idade + ' - ' + dados.job;
+        }, false)
+        
+    </script>
+</body>
+</html>
